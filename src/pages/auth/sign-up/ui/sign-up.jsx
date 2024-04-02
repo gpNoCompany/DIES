@@ -1,5 +1,7 @@
 import IconLogo from '@shared/assets/icons/logo.svg'
 import ImageVk from '@shared/assets/images/vk.png'
+import { Button } from '@shared/ui/button'
+import { Input } from '@shared/ui/input'
 
 export const SignUp = () => {
   return (
@@ -44,26 +46,10 @@ export const LoginForm = () => {
         </ul>
         <p className="mb-6">Или заполните поля ниже:</p>
         <form action="" className="mb-10 flex w-full flex-col gap-6">
-          <input
-            type="text"
-            placeholder="Имя"
-            className="rounded-full border px-4 py-1.5 text-2xl placeholder:text-2xl"
-          />
-          <input
-            type="text"
-            placeholder="Телефон"
-            className="rounded-full border px-4 py-1.5 text-2xl placeholder:text-2xl"
-          />
-          <input
-            type="text"
-            placeholder="E-mail"
-            className="rounded-full border px-4 py-1.5 text-2xl placeholder:text-2xl"
-          />
-          <input
-            type="text"
-            placeholder="Пароль"
-            className="rounded-full border px-4 py-1.5 text-2xl placeholder:text-2xl"
-          />
+          <Input type="text" placeholder="Имя" />
+          <Input type="text" placeholder="Телефон" />
+          <Input type="text" placeholder="E-mail" />
+          <Input type="text" placeholder="Пароль" />
           <label htmlFor="" className="flex items-center text-base">
             <div className="mr-2.5 h-6 w-12 rounded-full border-2 border-black outline-none" />
             <p>
@@ -74,9 +60,7 @@ export const LoginForm = () => {
             </p>
           </label>
         </form>
-        <button className="mb-4 inline-flex justify-center rounded-full bg-violet-300 px-14 py-1.5 text-center font-bold text-white">
-          зарегистрироваться
-        </button>
+        <Button label="зарегистрироваться" className="mb-4" />
         <div className="flex flex-col items-center">
           <p>
             Есть аккаунт?{' '}

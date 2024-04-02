@@ -1,5 +1,7 @@
 import IconLogo from '@shared/assets/icons/logo.svg'
 import ImageVk from '@shared/assets/images/vk.png'
+import { Button } from '@shared/ui/button'
+import { Input } from '@shared/ui/input'
 
 export const SignIn = () => {
   return (
@@ -22,7 +24,7 @@ export const SignIn = () => {
 export const LoginForm = () => {
   return (
     <div className="absolute left-1/2 top-1/2 h-[calc(100dvh-32px)] max-w-[740px] -translate-x-1/2 -translate-y-1/2 rounded-[40px] border bg-violet-100">
-      <div className="flex h-full flex-col items-center px-12 py-2 text-2xl">
+      <div className="flex h-full flex-col items-center px-12 pb-4 pt-16 text-2xl">
         <h2 className="mb-5 text-4xl font-bold">Вход в аккаунт</h2>
         <p className="mb-5">Войти с помощью:</p>
         <ul className="mb-10 flex items-center gap-7">
@@ -45,24 +47,14 @@ export const LoginForm = () => {
         </ul>
         <p className="mb-6">Или заполните поля ниже:</p>
         <form action="" className="mb-10 flex w-full flex-col gap-6">
-          <input
-            type="text"
-            placeholder="E-mail или телефон"
-            className="rounded-full border px-4 py-1.5 text-2xl placeholder:text-2xl"
-          />
-          <input
-            type="text"
-            placeholder="Пароль"
-            className="rounded-full border px-4 py-1.5 text-2xl placeholder:text-2xl"
-          />
+          <Input type="text" placeholder="E-mail или телефон" />
+          <Input type="text" placeholder="Пароль" />
           <label htmlFor="" className="flex items-center text-base">
             <div className="mr-2.5 h-6 w-12 rounded-full border-2 border-black outline-none" />
             Запомнить меня
           </label>
         </form>
-        <button className="mb-16 inline-flex justify-center rounded-full bg-violet-300 px-14 py-1.5 text-center font-bold text-white">
-          войти
-        </button>
+        <Button label="войти" className="mb-16" />
         <div className="flex flex-col items-center">
           <p>Забыли пароль?</p>
           <p>
