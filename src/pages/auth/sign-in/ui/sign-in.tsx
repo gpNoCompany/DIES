@@ -1,7 +1,10 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import IconLogo from '@shared/assets/icons/logo.svg'
 import ImageVk from '@shared/assets/images/vk.png'
 import { Button } from '@shared/ui/button'
 import { Input } from '@shared/ui/input'
+import { useForm } from 'react-hook-form'
+import { onSubmit, schema, ValidationSchemaType } from '../lib'
 
 export const SignIn = () => {
   return (
@@ -22,6 +25,14 @@ export const SignIn = () => {
 }
 
 export const LoginForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ValidationSchemaType>({
+    resolver: zodResolver(schema),
+  })
+
   return (
     <div className="absolute left-1/2 top-1/2 h-[calc(100dvh-32px)] max-w-[740px] -translate-x-1/2 -translate-y-1/2 rounded-[40px] border bg-violet-100">
       <div className="flex h-full flex-col items-center px-12 pb-4 pt-16 text-2xl">
@@ -46,15 +57,36 @@ export const LoginForm = () => {
           </li>
         </ul>
         <p className="mb-6">Или заполните поля ниже:</p>
-        <form action="" className="mb-10 flex w-full flex-col gap-6">
-          <Input type="text" placeholder="E-mail или телефон" />
-          <Input type="text" placeholder="Пароль" />
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          id="login_form"
+          className="mb-10 flex w-full flex-col gap-6"
+        >
+          <Input
+            register={register}
+            name="email"
+            type="text"
+            placeholder="E-mail или телефон"
+          />
+          {errors.email && <span className='text-red-600'>{errors.email.message}</span>}
+          <Input
+            register={register}
+            name="password"
+            type="text"
+            placeholder="Пароль"
+          />
+          {errors.password && <span className='text-red-600'>{errors.password.message}</span>}
           <label htmlFor="" className="flex items-center text-base">
             <div className="mr-2.5 h-6 w-12 rounded-full border-2 border-black outline-none" />
             Запомнить меня
           </label>
         </form>
-        <Button label="войти" className="mb-16" />
+        <Button
+          form="login_form"
+          type="submit"
+          label="войти"
+          className="mb-16"
+        />
         <div className="flex flex-col items-center">
           <p>Забыли пароль?</p>
           <p>
