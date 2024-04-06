@@ -1,10 +1,11 @@
-import { ValidationSchemaType } from '@pages/auth/sign-in/lib'
+// import { ValidationSchemaType } from '@pages/auth/sign-in/lib'
+import { ValidationSchemaType } from '@pages/auth/sign-up/lib'
 import { InputHTMLAttributes } from 'react'
 import { UseFormRegister } from 'react-hook-form'
 
 type InputProps = {
   placeholder: string
-  name: 'email' | 'password' | 'login'
+  name: 'email' | 'password' | 'name' | 'phone'
   type?: string
   register: UseFormRegister<ValidationSchemaType>
 }

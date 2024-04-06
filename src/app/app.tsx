@@ -4,8 +4,8 @@ import { SignUp } from '@pages/auth/sign-up'
 function App() {
   return (
     <>
-      {/* <SignUp /> */}
-      <SignIn />
+      <SignUp />
+      {/* <SignIn /> */}
     </>
   )
 }

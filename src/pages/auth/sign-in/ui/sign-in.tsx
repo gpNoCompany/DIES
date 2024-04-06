@@ -72,7 +72,7 @@ export const LoginForm = () => {
           <Input
             register={register}
             name="password"
-            type="text"
+            type="password"
             placeholder="Пароль"
           />
           {errors.password && <span className='text-red-600'>{errors.password.message}</span>}
