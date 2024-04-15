@@ -1,4 +1,3 @@
-// import { ValidationSchemaType } from '@pages/auth/sign-in/lib'
 import { ValidationSchemaType } from '@pages/auth/sign-up/lib'
 import { UseFormRegister } from 'react-hook-form'
 

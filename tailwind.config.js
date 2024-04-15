@@ -32,6 +32,9 @@ export default {
       fontFamily: {
         unbounded: ['Unbounded', 'sans-serif'],
       },
+      boxShadow: {
+        checkbox: '1px 2px 6px 0px rgba(112, 42, 114, 0.46)'
+      }
     },
   },
   plugins: [],

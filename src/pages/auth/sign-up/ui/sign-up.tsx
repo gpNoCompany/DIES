@@ -5,6 +5,7 @@ import { Button } from '@shared/ui/button'
 import { Input } from '@shared/ui/input'
 import { useForm } from 'react-hook-form'
 import { onSubmit, schema, ValidationSchemaType } from '../lib'
+import { Checkbox } from '@shared/ui/checkbox'
 
 export const SignUp = () => {
   return (
@@ -98,7 +99,7 @@ export const LoginForm = () => {
             <span className="text-red-600">{errors.password.message}</span>
           )}
           <label htmlFor="" className="flex items-center text-base">
-            <div className="mr-2.5 h-6 w-12 rounded-full border-2 border-black outline-none" />
+            <Checkbox className="mr-2.5" />
             <p>
               Я даю{' '}
               <a href="#" className="text-violet-300">

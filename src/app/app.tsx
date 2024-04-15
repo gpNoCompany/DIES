@@ -5,8 +5,8 @@ import { Error404Page } from '@pages/error404'
 function App() {
   return (
     <>
-      <Error404Page />
-      {/* <SignUp /> */}
+      {/* <Error404Page /> */}
+      <SignUp />
       {/* <SignIn /> */}
     </>
   )
