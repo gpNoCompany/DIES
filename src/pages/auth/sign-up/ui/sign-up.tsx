@@ -1,7 +1,10 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import IconLogo from '@shared/assets/icons/logo.svg'
 import ImageVk from '@shared/assets/images/vk.png'
 import { Button } from '@shared/ui/button'
 import { Input } from '@shared/ui/input'
+import { useForm } from 'react-hook-form'
+import { onSubmit, schema, ValidationSchemaType } from '../lib'
 
 export const SignUp = () => {
   return (
@@ -21,6 +24,14 @@ export const SignUp = () => {
 }
 
 export const LoginForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ValidationSchemaType>({
+    resolver: zodResolver(schema),
+  })
+
   return (
     <div className="absolute right-7 top-1/2 h-[calc(100dvh-32px)] max-w-[740px] -translate-y-1/2 rounded-[40px] border bg-orange-100">
       <div className="flex h-full flex-col items-center px-12 py-8 text-2xl">
@@ -45,11 +56,47 @@ export const LoginForm = () => {
           </li>
         </ul>
         <p className="mb-6">Или заполните поля ниже:</p>
-        <form action="" className="mb-10 flex w-full flex-col gap-6">
-          <Input type="text" placeholder="Имя" />
-          <Input type="text" placeholder="Телефон" />
-          <Input type="text" placeholder="E-mail" />
-          <Input type="text" placeholder="Пароль" />
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          id="signup_form"
+          className="mb-10 flex w-full flex-col gap-6"
+        >
+          <Input
+            register={register}
+            name="name"
+            type="text"
+            placeholder="Имя"
+          />
+          {errors.name && (
+            <span className="text-red-600">{errors.name.message}</span>
+          )}
+          <Input
+            register={register}
+            name="phone"
+            type="text"
+            placeholder="Телефон"
+          />
+          {errors.phone && (
+            <span className="text-red-600">{errors.phone.message}</span>
+          )}
+          <Input
+            register={register}
+            name="email"
+            type="text"
+            placeholder="E-mail"
+          />
+          {errors.email && (
+            <span className="text-red-600">{errors.email.message}</span>
+          )}
+          <Input
+            type="password"
+            register={register}
+            name="password"
+            placeholder="Пароль"
+          />
+          {errors.password && (
+            <span className="text-red-600">{errors.password.message}</span>
+          )}
           <label htmlFor="" className="flex items-center text-base">
             <div className="mr-2.5 h-6 w-12 rounded-full border-2 border-black outline-none" />
             <p>
@@ -60,7 +107,12 @@ export const LoginForm = () => {
             </p>
           </label>
         </form>
-        <Button label="зарегистрироваться" className="mb-4" />
+        <Button
+          form="signup_form"
+          type="submit"
+          label="зарегистрироваться"
+          className="mb-4"
+        />
         <div className="flex flex-col items-center">
           <p>
             Есть аккаунт?{' '}
