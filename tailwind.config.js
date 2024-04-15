@@ -28,7 +28,10 @@ export default {
           200: '#A3A8E0',
           300: '#702A72',
         },
-      }
+      },
+      fontFamily: {
+        unbounded: ['Unbounded', 'sans-serif'],
+      },
     },
   },
   plugins: [],

@@ -9,14 +9,14 @@ import { onSubmit, schema, ValidationSchemaType } from '../lib'
 export const SignUp = () => {
   return (
     <div className="flex h-dvh flex-col">
-      <header className="min-h-52 border-b px-16 py-8" />
+      <header className="min-h-48 border-b px-16 py-8" />
       <main className="flex grow items-end justify-start px-16 py-9">
         <div className="w-[700px]">
           <img src={IconLogo} alt="dies" />
         </div>
         <LoginForm />
       </main>
-      <footer className="relative flex min-h-28 justify-start px-16 py-8 after:absolute after:left-0 after:top-0 after:h-[1px] after:w-full after:bg-black">
+      <footer className="relative flex min-h-28 items-center justify-start px-16 py-8 after:absolute after:left-0 after:top-0 after:h-[1px] after:w-full after:bg-black">
         <p>ООО «Busy Friends» . Все права защищены, 2024</p>
       </footer>
     </div>
